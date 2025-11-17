@@ -40,12 +40,11 @@ body {
 
 .Slide-Bar
 {
-    .Header-Text
+    h1
     {
         text-align: center;
         font-family: 'Times New Roman', Times, serif;
         display: flexbox;
-        margin-top: 50%;
     }
     p
     {
