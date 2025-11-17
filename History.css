@@ -1,0 +1,448 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f9f9f9;
+}
+
+/* Top navigation bar */
+.navbar {
+    width: 100%;
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    background-color: #00008d;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.khmer-text, .english-text {
+    color: goldenrod;
+    margin: 0;
+}
+
+.khmer-text {
+    font-size: 18px;
+    font-family: 'Battambang', cursive;
+}
+
+.english-text {
+    font-size: 14px;
+}
+
+/* Menu toggle button (for mobile) */
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+    display: block;
+}
+
+/* Horizontal menu (for desktop) */
+/* Horizontal menu (desktop) */
+.horizontal-menu {
+    display: none;
+    flex-grow: 1;
+}
+
+.horizontal-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+
+.horizontal-menu li {
+    position: relative;
+}
+
+.horizontal-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.horizontal-menu li a:hover {
+    background: goldenrod;
+    color: #ffffff;
+}
+
+/* Submenu styling */
+/* Submenu styling */
+.submenu-horizontal {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgb(0, 33, 110);
+    min-width: 220px;
+    padding: 8px 0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 1050;
+
+    display: flex;
+    flex-direction: column;   /* ✅ stack submenu items top-down */
+    gap: 0;                   /* remove extra spacing */
+}
+
+.horizontal-menu li:hover > .submenu-horizontal {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu-horizontal li {
+    width: 100%;
+    padding: 0; /* reset padding so link takes full width */
+}
+
+.submenu-horizontal li a {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 500;   
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 0;
+    color: white;
+}
+
+
+/* Sidebar default (for mobile) */
+.sidebar {
+    width: 240px;
+    background: #fff;
+    height: 100vh;
+    padding: 20px 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 1200;
+    overflow-y: auto;
+}
+
+/* Hide sidebar by default */
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* Overlay background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display:block;
+    z-index: 1000;
+}
+.overlay.show {
+    display: block;
+}
+
+/* Sidebar menu items */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menu-item {
+    cursor: pointer;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000000;
+    font-size: 15px;
+    transition: background 0.3s ease;
+}
+.menu-item:hover {
+    background: #003487;
+    border-radius: 6px;
+    color: white;
+}
+.menu-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Submenu */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 20px;
+}
+.submenu li {
+    padding: 8px 20px;
+    font-size: 14px;
+    color:#000000;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.submenu li:hover {
+    background:#003487;
+    border-radius: 6px;
+    color: white;
+}
+.active + .submenu {
+    max-height: 300px;
+}
+.caret {
+    transition: transform 0.3s ease;
+}
+.active .caret {
+    transform: rotate(180deg);
+}
+
+/* ... existing CSS code above ... */
+
+.History {
+    margin-top: 80px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 40px;
+    color: #ffffff;
+    font-family: 'Battambang', cursive;
+    background-color: crimson;
+}
+.History1 {
+    margin-top: 80px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 40px;
+    color: #ffffff;
+    font-family: 'Battambang', cursive;
+    background-color: #003487;
+}
+.History-Text {
+    margin-top: -30px;
+    text-align: justify;
+    padding-top: 20px;
+    font-size: 20px;
+    color: #000000;
+    font-family: 'Battambang', cursive;
+    /* align-items: center; <-- This property is for flex/grid containers, not for centering text/blocks */
+    max-width: 100%; /* Added for better readability on desktop */
+    margin-left: auto; /* Center the block element */
+    margin-right: auto; /* Center the block element */
+    padding-left: 20px; /* Add some padding for smaller screens */
+    padding-right: 20px; /* Add some padding for smaller screens */
+}
+
+/* --- Change to center the images --- */
+.School {
+    /* To center a block element like an image (which is 'display: inline' by default, 
+       but acts like a block when given auto margins and a parent with 'text-align: center'), 
+       you have a couple of options. */
+    
+    /* Option 1: Treat images as block elements and use auto margins (best for centering a single block) */
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%; /* Ensure images don't overflow their container */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Add some space below the images */
+}
+
+/* You also need to ensure the parent <div> allows block centering or use flexbox/text-align center. */
+/* Since your H1, P, and H2 elements are centered via `text-align: center` or are block-centered, 
+   we'll wrap the main content to make sure the images are correctly block-centered. */
+/*
+   For the content structure:
+   <div>
+       <h1 class="History">...</h1>
+       <p class="History1">...</p>
+       <h2 class="History">...</h2>
+       <img class="School" src="School1.jpg" alt="SBKU Campus 1" class="campus-image">
+       <h2 class="History">...</h2>
+       <img class="School" src="School2.jpg" alt="SBKU Campus 1" class="campus-image">
+   </div>
+   
+   The combination of `display: block` and `margin: auto` on the `.School` images is the most reliable way 
+   to center them within their parent `<div>`.
+*/
+
+/* ... existing CSS code below ... */
+
+
+
+
+
+/* Main Content Area */
+.main-content {
+    margin-left: 0;
+    padding-top: 50px;
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .overlay, .sidebar, .menu-toggle {
+        display: none !important;
+    }
+    .horizontal-menu {
+        display: block;
+    }
+    .navbar {
+        justify-content: space-between;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .main-content {
+        padding-top: 80px;
+    }
+}
+
+.Text-News {
+    text-align: center;
+}
+
+.News {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.News-Box {
+    background: white;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.News-Box:hover {
+    transform: translateY(-5px);
+}
+
+.News-Box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.Text-Loacation {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 25px;
+    color: #003c91;
+}
+
+.Location {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.Location iframe {
+    width: 100%;
+    height: 500px;
+}
+
+.footer {
+    background-color: navy;
+    color: white;
+    padding: 40px 20px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    color: goldenrod;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.8;
+    transition: color 0.3s ease;
+}
+
+.footer-column li a:hover {
+    color: goldenrod;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 30%;
+    background: #fff;
+    padding: 5px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
